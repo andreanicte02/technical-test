@@ -9,6 +9,7 @@ const Login = () => {
 
 
     const handleChange = e => {
+        console.log(body);
         setBody({
             ...body,
             [e.target.name]: e.target.value
