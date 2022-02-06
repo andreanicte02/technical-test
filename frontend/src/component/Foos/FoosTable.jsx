@@ -14,7 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 const FoosTable = (props) => {
-    console.log(props.info);
+    console.log(props.foo);
 
     return (
       <div>
@@ -31,7 +31,7 @@ const FoosTable = (props) => {
                       </TableRow>
                   </TableHead>
                   <TableBody>
-                      {props.info.map((row) => (
+                      {props.foo.map((row) => (
                           <TableRow
                               key={row.id}
                               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
