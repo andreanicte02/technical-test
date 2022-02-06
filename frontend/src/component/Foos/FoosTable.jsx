@@ -49,7 +49,10 @@ const FoosTable = (props) => {
                                   >
                                       Delete
                                   </Button>
-                                  <Button variant="contained" endIcon={<EditIcon />}>
+                                  <Button
+                                      variant="contained" endIcon={<EditIcon />}
+                                      onClick={()=>props.editRow(row)}
+                                  >
                                       Edit
                                   </Button>
                               </TableCell>
