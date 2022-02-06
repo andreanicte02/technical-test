@@ -14,7 +14,9 @@ import EditIcon from '@mui/icons-material/Edit';
 
 
 const FoosTable = (props) => {
+
     console.log(props.foo);
+
 
     return (
       <div>
@@ -36,11 +38,15 @@ const FoosTable = (props) => {
                               key={row.id}
                               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                           >
-                              <TableCell align="right">{row.name}</TableCell>
+                              <TableCell align="right">{row.nombre}</TableCell>
                               <TableCell align="right">{row.ubicacion}</TableCell>
                               <TableCell align="right">{row.telefono}</TableCell>
                               <TableCell align="right">
-                                  <Button variant="outlined" startIcon={<DeleteIcon />}>
+                                  <Button
+                                      variant="outlined"
+                                      startIcon={<DeleteIcon />}
+                                      onClick={()=>props.delete(row.id)}
+                                  >
                                       Delete
                                   </Button>
                                   <Button variant="contained" endIcon={<EditIcon />}>
