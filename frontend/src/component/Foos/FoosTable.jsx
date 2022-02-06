@@ -1,78 +1,58 @@
 import React from 'react';
-import useStyles from "../../constants/useStyles";
-import {Grid, Container, Paper, Button, CssBaseline} from '@material-ui/core'
-import CreateIcon from '@mui/icons-material/Create';
-import Divider from '@mui/material/Divider';
-import {Table, TableContainer, TableHead, TableRow, TableCell} from "@mui/material";
+import { Paper} from '@material-ui/core'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
 
-const FoosTable = () => {
-    const classes = useStyles()
+const FoosTable = (props) => {
+    console.log(props.info);
 
     return (
-        <Grid container component='main' className={classes.root}>
-            <CssBaseline/>
-            <Container component={Paper} elevation={5} maxWidth='md' className={classes.container}>
+      <div>
 
-                <Divider orientation="horizontal" flexItem>
-                    .
-                </Divider>
+          <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <TableHead>
+                      <TableRow>
 
-                <CreateIcon/>
-
-                <Divider orientation="horizontal" flexItem/>
-                <TableContainer component={Paper}>
-                <Table>
-                    <TableHead>
-                    <th>
-                        <h4>name</h4>
-                    </th>
-                    <th>
-                       <h4>ubicacion</h4>
-
-                    </th>
-                    <th>
-                        <h4 >telefono</h4>
-                    </th>
-                    <th>
-                        <h4 >action</h4>
-
-                    </th>
-                    </TableHead>
-                    <tbody>
-                    <td>
-                        name
-                    </td>
-                    <td>
-                        ubicacion
-                    </td>
-                    <td>
-                        teleofono
-                    </td>
-                    <td>
-                        <Button
-
-                            className={classes.button}
-                            variant='contained'
-                            color = 'primary'
-                        >
-                                Edit
-                            </Button>
-                        <Button
-
-                            className={classes.button}
-                            variant='contained'
-                            color = 'secondary'
-                        >Delete</Button>
-                    </td>
-
-                    </tbody>
-                </Table>
-                </TableContainer>
-            </Container>
-        </Grid>
+                          <TableCell align="right">nombre</TableCell>
+                          <TableCell align="right">ubicacion</TableCell>
+                          <TableCell align="right">telefono</TableCell>
+                          <TableCell align="right">action</TableCell>
+                      </TableRow>
+                  </TableHead>
+                  <TableBody>
+                      {props.info.map((row) => (
+                          <TableRow
+                              key={row.id}
+                              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                          >
+                              <TableCell align="right">{row.name}</TableCell>
+                              <TableCell align="right">{row.ubicacion}</TableCell>
+                              <TableCell align="right">{row.telefono}</TableCell>
+                              <TableCell align="right">
+                                  <Button variant="outlined" startIcon={<DeleteIcon />}>
+                                      Delete
+                                  </Button>
+                                  <Button variant="contained" endIcon={<EditIcon />}>
+                                      Edit
+                                  </Button>
+                              </TableCell>
+                          </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+          </TableContainer>
+      </div>
     );
 
 }
