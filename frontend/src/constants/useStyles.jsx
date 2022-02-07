@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
         }
     },
     div: {
-        marginTop: theme.spacing(0),
+        marginTop: theme.spacing(2),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor:'gray'
+        backgroundImage: `url(${fondo})`
 
 
     },
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
             width: '100%',
             height: '100%'
         },
-        marginBottom: theme.spacing(4)
+        marginBottom: theme.spacing(4),
     }
 }))
 

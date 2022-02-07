@@ -5,7 +5,7 @@ import {v4 as uuidv4} from 'uuid';
 import AddFoo from "./AddFoo";
 import EditFoo from "./EditFoo";
 import useStyles from "../../constants/useStyles";
-import {goo, create} from "../../constants/crudFoo";
+import {goo, create, deletee, edit} from "../../constants/crudFoo";
 
 const Foos = () => {
 
@@ -38,9 +38,10 @@ const Foos = () => {
         const auxArray = foos.filter(
             foo => foo.id !== id
         );
-
         setFoos(auxArray)
+        deletee(id);
     }
+
 
     const [currentFoo, setCurrentFoo] = useState({
         id: null, nombre: null, ubicacion: null, telefono: null
@@ -56,7 +57,6 @@ const Foos = () => {
             ubicacion: foo.ubicacion,
             telefono: foo.telefono
         })
-
     }
 
     const updateFoo = (id, foo) => {
@@ -67,6 +67,9 @@ const Foos = () => {
         setFoos(
             foos.map(elemet => (elemet.id === id ? foo : elemet))
         )
+
+        edit({nombre: foo.nombre, ubicacion: foo.ubicacion, telefono: foo.telefono},id)
+
     }
 
 
