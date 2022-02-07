@@ -5,31 +5,32 @@ import {v4 as uuidv4} from 'uuid';
 import AddFoo from "./AddFoo";
 import EditFoo from "./EditFoo";
 import useStyles from "../../constants/useStyles";
+import {goo, create} from "../../constants/crudFoo";
 
 const Foos = () => {
 
     const classes = useStyles()
 
-    const data = [
-
-        {id: uuidv4(), nombre: 'Retalhuleu', ubicacion: 'zona 1', telefono: '12323123'},
-        {id: uuidv4(), nombre: 'Retalhuleu', ubicacion: 'zona 1', telefono: '12323123'},
-        {id: uuidv4(), nombre: 'Retalhuleu', ubicacion: 'zona 1', telefono: '12323123'},
-        {id: uuidv4(), nombre: 'Retalhuleu', ubicacion: 'zona 1', telefono: '12323123'}
-
-    ]
-
-
-
-    const [foos, setFoos] = useState(data);
+    const [foos, setFoos] = useState([]);
     const [isEdit, setIsEdit] = useState(false);
+    const [flag, setiIsFlag] = useState(true);
+
+    function hello(){
+
+        if(!flag) return;
+
+        goo(setFoos);
+        setiIsFlag(false);
+        console.log('hola');
+    }
+
 
     const addFoo = (data) => {
 
-        setFoos([
-            ...foos,
-            data
-        ])
+        console.log(data);
+        create(data);
+        setiIsFlag(true);
+
     }
 
     //si es solo un argumento no se necesitan parametros
@@ -67,6 +68,9 @@ const Foos = () => {
             foos.map(elemet => (elemet.id === id ? foo : elemet))
         )
     }
+
+
+    hello();
 
     return (
         <div className={classes.div} >

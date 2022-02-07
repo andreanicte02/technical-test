@@ -18,10 +18,11 @@ const AddFoo = (props) =>{
 
     const onSubmit = () => {
         const data = {
-            id:uuidv4(),
+
             nombre:body.nombre,
-            ubicacion:body.ubicacion,
-            telefono:body.telefono}
+            telefono:body.telefono,
+            ubicacion:body.ubicacion
+        }
 
         props.addFoo(data);
     }
