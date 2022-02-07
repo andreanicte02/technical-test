@@ -1,10 +1,25 @@
 package com.example.backend.model;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Establecimiento")
+@EntityListeners(AuditingEntityListener.class)
 public class Establecimiento
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "telefono", nullable = false)
     private String telefono;
+
+    @Column(name = "ubicacion", nullable = false)
     private String ubicacion;
 
 
