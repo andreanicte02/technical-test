@@ -19,17 +19,21 @@ public class EstablecimientoController {
     @Autowired
     private EstablecimientoRepository establecimientoRepository;
 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/establecimiento")
     public List<Establecimiento> getAllEstablecimiento() {
 
         return establecimientoRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/establecimiento")
     public Establecimiento create(@RequestBody Establecimiento establecimiento) {
         return establecimientoRepository.save(establecimiento);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/establecimiento/{id}")
     public ResponseEntity<Establecimiento> updateEstablecimiento(
             @PathVariable(value = "id") int establecimientoId, @RequestBody Establecimiento establecimiento) throws Exception {
@@ -46,6 +50,7 @@ public class EstablecimientoController {
         return ResponseEntity.ok(updatedEstablecimiento);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/establecimiento/{id}")
     public Map<String, Boolean> deleteEstablecimiento(@PathVariable(value = "id") int establecimientoId) throws Exception {
         Establecimiento auxEst =
