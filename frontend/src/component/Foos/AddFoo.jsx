@@ -29,7 +29,7 @@ const AddFoo = (props) =>{
 
     return(
         <form className={classes.form}>
-            <h2>add entity</h2>
+            <h2>add fiscalia</h2>
             <TextField
                 fullWidth
                 autoFocus

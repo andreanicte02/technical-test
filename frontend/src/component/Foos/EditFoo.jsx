@@ -23,7 +23,7 @@ const EditFoo = (props) =>{
 
     return(
         <form className={classes.form}>
-            <h2>edit entity</h2>
+            <h2>edit fiscalia</h2>
             <TextField
                 fullWidth
                 autoFocus
