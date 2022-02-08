@@ -21,12 +21,12 @@ const useStyles = makeStyles(theme => ({
         }
     },
     div: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(5),
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundImage: `url(${fondo})`
-
+        backgroundImage: `url(${fondo})`,
+        marginBottom: theme.spacing(5)
 
     },
     avatar: {
